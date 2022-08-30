@@ -1,5 +1,6 @@
 package study;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,4 +17,12 @@ public class StringTest {
         String[] strings = "1,2".split(",");
         assertThat(strings).containsExactly("1", "2");
     }
+
+    @Test
+    void subString(){
+        String target = "(1,2)";
+        String result = target.substring(1, 4);
+        assertThat(result).isEqualTo("1,2");
+    }
+
 }
