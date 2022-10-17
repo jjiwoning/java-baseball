@@ -22,7 +22,7 @@ public class StringCalculator {
             return;
         }
 
-        throw new IllegalArgumentException(); // 첫 값이 숫자가 아님 -> 예외 던지기
+        throw new IllegalArgumentException("첫 값이 숫자가 아닙니다."); // 첫 값이 숫자가 아님 -> 예외 던지기
     }
 
     public long getResult() {
@@ -59,7 +59,7 @@ public class StringCalculator {
             return answer / number;
         }
 
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("연산자가 아닌 다른 값이 들어갔습니다.");
     }
 
     private boolean check(String value) {
