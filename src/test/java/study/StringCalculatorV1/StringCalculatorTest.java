@@ -1,4 +1,4 @@
-package study;
+package study.StringCalculatorV1;
 
 import StringCalculatorV1.StringCalculator;
 import org.assertj.core.api.Assertions;
