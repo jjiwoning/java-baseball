@@ -1,3 +1,5 @@
+package StringCalculatorV1;
+
 import java.util.regex.Pattern;
 
 public class StringCalculator {
