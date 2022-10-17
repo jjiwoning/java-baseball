@@ -1,30 +1,72 @@
+import java.util.regex.Pattern;
+
 public class StringCalculator {
 
-    private String[] value;
+    private String[] values;
     private long answer;
 
     public StringCalculator(String value) {
-        this.value = value.split(" ");
+        this.values = value.split(" ");
         this.answer = 0;
     }
 
-    public void printAnswer(){
-        findFirstValue();
-
-        System.out.println(answer);
-    }
-
     private void findFirstValue() {
-        int firstNumber = Integer.parseInt(value[0]);
-        answer += firstNumber;
-    }
 
-    private void getSum(String[] value, long answer) {
+        int[] numbers = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-        for (int i = 1; i < value.length; i++) {
-
+        if (check(values[0])) {
+            int firstNumber = Integer.parseInt(values[0]);
+            answer += firstNumber;
+            return;
         }
 
+        throw new IllegalArgumentException(); // 첫 값이 숫자가 아님 -> 예외 던지기
     }
 
+    public long getResult() {
+
+        findFirstValue();
+        String operator;
+
+
+        for (int i = 1; i < values.length; i++) {
+            if (check(values[i])) {
+                calculate()
+            }
+        }
+
+        return answer;
+    }
+
+    private long calculate(int number, String operator) {
+
+        if (operator.equals("+")) {
+            return answer + number;
+        }
+
+        if (operator.equals("-")) {
+            return answer - number;
+        }
+
+        if (operator.equals("*")) {
+            return answer * number;
+        }
+
+        if (operator.equals("/")) {
+            return answer / number;
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+    private boolean check(String value) {
+
+        String regExp = "^\\d*$";
+
+        if (Pattern.matches(regExp, value)) {
+            return true;
+        }
+
+        return false;
+    }
 }
