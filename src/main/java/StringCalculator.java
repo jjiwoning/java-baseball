@@ -26,12 +26,13 @@ public class StringCalculator {
     public long getResult() {
 
         findFirstValue();
-        String operator;
-
+        String operator = "?";
 
         for (int i = 1; i < values.length; i++) {
             if (check(values[i])) {
-                calculate()
+                answer = calculate(Integer.parseInt(values[i]), operator);
+            } else {
+                operator = values[i];
             }
         }
 
